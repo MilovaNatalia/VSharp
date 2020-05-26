@@ -1,0 +1,135 @@
+set(prolog_style_variables).
+assign(max_seconds,20).
+assign(max_megs, 1024).
+formulas(assumptions).
+-contravariant_subtype(A,B) <- B != A & is_valuetype(B).
+contravariant_subtype(A,B) <- B = A & is_valuetype(B).
+contravariant_subtype(A,B) <- is_reference(B) & subtype(B,A).
+-contravariant_subtype(A,B) <- is_reference(B) & -subtype(B,A).
+-covariant_subtype(A,B) <- A != B & is_valuetype(A).
+covariant_subtype(A,B) <- A = B & is_valuetype(A).
+covariant_subtype(A,B) <- is_reference(A) & subtype(A,B).
+-covariant_subtype(A,B) <- is_reference(A) & -subtype(A,B).
+default_constructor(mutualrec33554488(_,_)).
+default_constructor(object33554493).
+default_constructor(rec33554487(_)).
+is_reference(action33554497).
+is_reference(delegate33554565).
+is_reference(icloneable33554495).
+is_reference(ienumerable33555569).
+is_reference(ienumerable33555622(_)).
+is_reference(iserializable33556234).
+is_reference(multicastdelegate33554567).
+is_reference(mutualrec33554488(_,_)).
+is_reference(object33554493).
+is_reference(rec33554487(_)).
+is_unmanaged(_) <- $F.
+is_valuetype(_) <- $F.
+subtype(action33554497,action33554497).
+subtype(action33554497,delegate33554565).
+subtype(action33554497,icloneable33554495).
+-subtype(action33554497,ienumerable33555569).
+-subtype(action33554497,ienumerable33555622(_)).
+subtype(action33554497,iserializable33556234).
+subtype(action33554497,multicastdelegate33554567).
+-subtype(action33554497,mutualrec33554488(_,_)).
+subtype(action33554497,object33554493).
+-subtype(action33554497,rec33554487(_)).
+-subtype(delegate33554565,action33554497).
+subtype(delegate33554565,delegate33554565).
+subtype(delegate33554565,icloneable33554495).
+-subtype(delegate33554565,ienumerable33555569).
+-subtype(delegate33554565,ienumerable33555622(_)).
+subtype(delegate33554565,iserializable33556234).
+-subtype(delegate33554565,multicastdelegate33554567).
+-subtype(delegate33554565,mutualrec33554488(_,_)).
+subtype(delegate33554565,object33554493).
+-subtype(delegate33554565,rec33554487(_)).
+-subtype(icloneable33554495,action33554497).
+-subtype(icloneable33554495,delegate33554565).
+subtype(icloneable33554495,icloneable33554495).
+-subtype(icloneable33554495,ienumerable33555569).
+-subtype(icloneable33554495,ienumerable33555622(_)).
+-subtype(icloneable33554495,iserializable33556234).
+-subtype(icloneable33554495,multicastdelegate33554567).
+-subtype(icloneable33554495,mutualrec33554488(_,_)).
+subtype(icloneable33554495,object33554493).
+-subtype(icloneable33554495,rec33554487(_)).
+-subtype(ienumerable33555569,action33554497).
+-subtype(ienumerable33555569,delegate33554565).
+-subtype(ienumerable33555569,icloneable33554495).
+subtype(ienumerable33555569,ienumerable33555569).
+-subtype(ienumerable33555569,ienumerable33555622(_)).
+-subtype(ienumerable33555569,iserializable33556234).
+-subtype(ienumerable33555569,multicastdelegate33554567).
+-subtype(ienumerable33555569,mutualrec33554488(_,_)).
+subtype(ienumerable33555569,object33554493).
+-subtype(ienumerable33555569,rec33554487(_)).
+-subtype(ienumerable33555622(_),action33554497).
+-subtype(ienumerable33555622(_),delegate33554565).
+-subtype(ienumerable33555622(_),icloneable33554495).
+subtype(ienumerable33555622(_),ienumerable33555569).
+-subtype(ienumerable33555622(_),iserializable33556234).
+-subtype(ienumerable33555622(_),multicastdelegate33554567).
+-subtype(ienumerable33555622(_),mutualrec33554488(_,_)).
+subtype(ienumerable33555622(_),object33554493).
+-subtype(ienumerable33555622(_),rec33554487(_)).
+subtype(ienumerable33555622(A),ienumerable33555622(B)) <- covariant_subtype(A,B).
+-subtype(ienumerable33555622(A),ienumerable33555622(B)) <- -covariant_subtype(A,B).
+-subtype(iserializable33556234,action33554497).
+-subtype(iserializable33556234,delegate33554565).
+-subtype(iserializable33556234,icloneable33554495).
+-subtype(iserializable33556234,ienumerable33555569).
+-subtype(iserializable33556234,ienumerable33555622(_)).
+subtype(iserializable33556234,iserializable33556234).
+-subtype(iserializable33556234,multicastdelegate33554567).
+-subtype(iserializable33556234,mutualrec33554488(_,_)).
+subtype(iserializable33556234,object33554493).
+-subtype(iserializable33556234,rec33554487(_)).
+-subtype(multicastdelegate33554567,action33554497).
+subtype(multicastdelegate33554567,delegate33554565).
+subtype(multicastdelegate33554567,icloneable33554495).
+-subtype(multicastdelegate33554567,ienumerable33555569).
+-subtype(multicastdelegate33554567,ienumerable33555622(_)).
+subtype(multicastdelegate33554567,iserializable33556234).
+subtype(multicastdelegate33554567,multicastdelegate33554567).
+-subtype(multicastdelegate33554567,mutualrec33554488(_,_)).
+subtype(multicastdelegate33554567,object33554493).
+-subtype(multicastdelegate33554567,rec33554487(_)).
+-subtype(mutualrec33554488(_,_),action33554497).
+-subtype(mutualrec33554488(_,_),delegate33554565).
+-subtype(mutualrec33554488(_,_),icloneable33554495).
+-subtype(mutualrec33554488(_,_),ienumerable33555569).
+-subtype(mutualrec33554488(_,_),ienumerable33555622(_)).
+-subtype(mutualrec33554488(_,_),iserializable33556234).
+-subtype(mutualrec33554488(_,_),multicastdelegate33554567).
+subtype(mutualrec33554488(_,_),object33554493).
+-subtype(mutualrec33554488(_,_),rec33554487(_)).
+-subtype(mutualrec33554488(A,B),mutualrec33554488(_,D)) <- subtype(A,rec33554487(B)) & subtype(B,rec33554487(A)) & B != D.
+-subtype(mutualrec33554488(A,B),mutualrec33554488(C,_)) <- subtype(A,rec33554487(B)) & subtype(B,rec33554487(A)) & A != C.
+subtype(mutualrec33554488(A,B),mutualrec33554488(C,D)) <- A = C & B = D & subtype(A,rec33554487(B)) & subtype(B,rec33554487(A)).
+-subtype(object33554493,action33554497).
+-subtype(object33554493,delegate33554565).
+-subtype(object33554493,icloneable33554495).
+-subtype(object33554493,ienumerable33555569).
+-subtype(object33554493,ienumerable33555622(_)).
+-subtype(object33554493,iserializable33556234).
+-subtype(object33554493,multicastdelegate33554567).
+-subtype(object33554493,mutualrec33554488(_,_)).
+subtype(object33554493,object33554493).
+-subtype(object33554493,rec33554487(_)).
+-subtype(rec33554487(_),action33554497).
+-subtype(rec33554487(_),delegate33554565).
+-subtype(rec33554487(_),icloneable33554495).
+-subtype(rec33554487(_),ienumerable33555569).
+-subtype(rec33554487(_),ienumerable33555622(_)).
+-subtype(rec33554487(_),iserializable33556234).
+-subtype(rec33554487(_),multicastdelegate33554567).
+-subtype(rec33554487(_),mutualrec33554488(_,_)).
+subtype(rec33554487(_),object33554493).
+-subtype(rec33554487(A),rec33554487(B)) <- A != B.
+subtype(rec33554487(A),rec33554487(B)) <- A = B. 
+end_of_list.
+formulas(goals). 
+exists E exists F exists A exists B exists C exists D (subtype(E,action33554497) & subtype(E,ienumerable33555622(E)) & subtype(F,iserializable33556234) & -subtype(A,mutualrec33554488(B,C)) & -subtype(D,mutualrec33554488(B,C)) & -subtype(B,rec33554487(C)) & -subtype(C,rec33554487(B)) & -subtype(B,rec33554487(C)) & -subtype(C,rec33554487(B)) & is_reference(F)). 
+end_of_list.

@@ -1,0 +1,427 @@
+set(prolog_style_variables).
+assign(max_seconds,20).
+assign(max_megs, 1024).
+formulas(assumptions).
+-contravariant_subtype(A,B) <- B != A & is_valuetype(B).
+contravariant_subtype(A,B) <- B = A & is_valuetype(B).
+contravariant_subtype(A,B) <- is_reference(B) & subtype(B,A).
+-contravariant_subtype(A,B) <- is_reference(B) & -subtype(B,A).
+-covariant_subtype(A,B) <- A != B & is_valuetype(A).
+covariant_subtype(A,B) <- A = B & is_valuetype(A).
+covariant_subtype(A,B) <- is_reference(A) & subtype(A,B).
+-covariant_subtype(A,B) <- is_reference(A) & -subtype(A,B).
+default_constructor(dictionary33555602(_,_)).
+default_constructor(keyvaluepair33555630(_,_)).
+default_constructor(object33554493).
+is_reference(delegate33554565).
+is_reference(dictionary33555602(_,_)).
+is_reference(func33554502(_,_)).
+is_reference(func33554503(_,_,_)).
+is_reference(icloneable33554495).
+is_reference(icollection33555565).
+is_reference(icollection33555619(_)).
+is_reference(ideserializationcallback33556230).
+is_reference(idictionary33555567).
+is_reference(idictionary33555621(_,_)).
+is_reference(ienumerable33555569).
+is_reference(ienumerable33555622(_)).
+is_reference(ireadonlycollection33555626(_)).
+is_reference(ireadonlydictionary33555628(_,_)).
+is_reference(iserializable33556234).
+is_reference(multicastdelegate33554567).
+is_reference(object33554493).
+is_reference(valuetype33554777).
+is_unmanaged(_) <- $F.
+is_valuetype(keyvaluepair33555630(_,_)).
+subtype(delegate33554565,delegate33554565).
+-subtype(delegate33554565,dictionary33555602(_,_)).
+-subtype(delegate33554565,func33554502(_,_)).
+-subtype(delegate33554565,func33554503(_,_,_)).
+subtype(delegate33554565,icloneable33554495).
+-subtype(delegate33554565,icollection33555565).
+-subtype(delegate33554565,icollection33555619(_)).
+-subtype(delegate33554565,ideserializationcallback33556230).
+-subtype(delegate33554565,idictionary33555567).
+-subtype(delegate33554565,idictionary33555621(_,_)).
+-subtype(delegate33554565,ienumerable33555569).
+-subtype(delegate33554565,ienumerable33555622(_)).
+-subtype(delegate33554565,ireadonlycollection33555626(_)).
+-subtype(delegate33554565,ireadonlydictionary33555628(_,_)).
+subtype(delegate33554565,iserializable33556234).
+-subtype(delegate33554565,keyvaluepair33555630(_,_)).
+-subtype(delegate33554565,multicastdelegate33554567).
+subtype(delegate33554565,object33554493).
+-subtype(delegate33554565,valuetype33554777).
+-subtype(dictionary33555602(_,_),delegate33554565).
+-subtype(dictionary33555602(_,_),func33554502(_,_)).
+-subtype(dictionary33555602(_,_),func33554503(_,_,_)).
+-subtype(dictionary33555602(_,_),icloneable33554495).
+subtype(dictionary33555602(_,_),icollection33555565).
+subtype(dictionary33555602(_,_),ideserializationcallback33556230).
+subtype(dictionary33555602(_,_),idictionary33555567).
+subtype(dictionary33555602(_,_),ienumerable33555569).
+subtype(dictionary33555602(_,_),iserializable33556234).
+-subtype(dictionary33555602(_,_),keyvaluepair33555630(_,_)).
+-subtype(dictionary33555602(_,_),multicastdelegate33554567).
+subtype(dictionary33555602(_,_),object33554493).
+-subtype(dictionary33555602(_,_),valuetype33554777).
+-subtype(dictionary33555602(_,B),dictionary33555602(_,D)) <- B != D.
+-subtype(dictionary33555602(A,_),dictionary33555602(C,_)) <- A != C.
+subtype(dictionary33555602(A,B),dictionary33555602(C,D)) <- A = C & B = D.
+subtype(dictionary33555602(A,B),icollection33555619(C)) <- subtype(icollection33555619(keyvaluepair33555630(A,B)),icollection33555619(C)).
+-subtype(dictionary33555602(A,B),icollection33555619(C)) <- -subtype(icollection33555619(keyvaluepair33555630(A,B)),icollection33555619(C)).
+subtype(dictionary33555602(A,B),idictionary33555621(C,D)) <- subtype(idictionary33555621(A,B),idictionary33555621(C,D)).
+-subtype(dictionary33555602(A,B),idictionary33555621(C,D)) <- -subtype(idictionary33555621(A,B),idictionary33555621(C,D)).
+subtype(dictionary33555602(A,B),ienumerable33555622(C)) <- subtype(ienumerable33555622(keyvaluepair33555630(A,B)),ienumerable33555622(C)).
+-subtype(dictionary33555602(A,B),ienumerable33555622(C)) <- -subtype(ienumerable33555622(keyvaluepair33555630(A,B)),ienumerable33555622(C)).
+subtype(dictionary33555602(A,B),ireadonlycollection33555626(C)) <- subtype(ireadonlycollection33555626(keyvaluepair33555630(A,B)),ireadonlycollection33555626(C)).
+-subtype(dictionary33555602(A,B),ireadonlycollection33555626(C)) <- -subtype(ireadonlycollection33555626(keyvaluepair33555630(A,B)),ireadonlycollection33555626(C)).
+subtype(dictionary33555602(A,B),ireadonlydictionary33555628(C,D)) <- subtype(ireadonlydictionary33555628(A,B),ireadonlydictionary33555628(C,D)).
+-subtype(dictionary33555602(A,B),ireadonlydictionary33555628(C,D)) <- -subtype(ireadonlydictionary33555628(A,B),ireadonlydictionary33555628(C,D)).
+subtype(func33554502(_,_),delegate33554565).
+-subtype(func33554502(_,_),dictionary33555602(_,_)).
+-subtype(func33554502(_,_),func33554503(_,_,_)).
+subtype(func33554502(_,_),icloneable33554495).
+-subtype(func33554502(_,_),icollection33555565).
+-subtype(func33554502(_,_),icollection33555619(_)).
+-subtype(func33554502(_,_),ideserializationcallback33556230).
+-subtype(func33554502(_,_),idictionary33555567).
+-subtype(func33554502(_,_),idictionary33555621(_,_)).
+-subtype(func33554502(_,_),ienumerable33555569).
+-subtype(func33554502(_,_),ienumerable33555622(_)).
+-subtype(func33554502(_,_),ireadonlycollection33555626(_)).
+-subtype(func33554502(_,_),ireadonlydictionary33555628(_,_)).
+subtype(func33554502(_,_),iserializable33556234).
+-subtype(func33554502(_,_),keyvaluepair33555630(_,_)).
+subtype(func33554502(_,_),multicastdelegate33554567).
+subtype(func33554502(_,_),object33554493).
+-subtype(func33554502(_,_),valuetype33554777).
+-subtype(func33554502(_,B),func33554502(_,D)) <- -covariant_subtype(B,D).
+-subtype(func33554502(A,_),func33554502(C,_)) <- -contravariant_subtype(A,C).
+subtype(func33554502(A,B),func33554502(C,D)) <- contravariant_subtype(A,C) & covariant_subtype(B,D).
+subtype(func33554503(_,_,_),delegate33554565).
+-subtype(func33554503(_,_,_),dictionary33555602(_,_)).
+-subtype(func33554503(_,_,_),func33554502(_,_)).
+subtype(func33554503(_,_,_),icloneable33554495).
+-subtype(func33554503(_,_,_),icollection33555565).
+-subtype(func33554503(_,_,_),icollection33555619(_)).
+-subtype(func33554503(_,_,_),ideserializationcallback33556230).
+-subtype(func33554503(_,_,_),idictionary33555567).
+-subtype(func33554503(_,_,_),idictionary33555621(_,_)).
+-subtype(func33554503(_,_,_),ienumerable33555569).
+-subtype(func33554503(_,_,_),ienumerable33555622(_)).
+-subtype(func33554503(_,_,_),ireadonlycollection33555626(_)).
+-subtype(func33554503(_,_,_),ireadonlydictionary33555628(_,_)).
+subtype(func33554503(_,_,_),iserializable33556234).
+-subtype(func33554503(_,_,_),keyvaluepair33555630(_,_)).
+subtype(func33554503(_,_,_),multicastdelegate33554567).
+subtype(func33554503(_,_,_),object33554493).
+-subtype(func33554503(_,_,_),valuetype33554777).
+-subtype(func33554503(_,_,C),func33554503(_,_,F)) <- -covariant_subtype(C,F).
+-subtype(func33554503(_,B,_),func33554503(_,E,_)) <- -contravariant_subtype(B,E).
+-subtype(func33554503(A,_,_),func33554503(D,_,_)) <- -contravariant_subtype(A,D).
+subtype(func33554503(A,B,C),func33554503(D,E,F)) <- contravariant_subtype(A,D) & contravariant_subtype(B,E) & covariant_subtype(C,F).
+-subtype(icloneable33554495,delegate33554565).
+-subtype(icloneable33554495,dictionary33555602(_,_)).
+-subtype(icloneable33554495,func33554502(_,_)).
+-subtype(icloneable33554495,func33554503(_,_,_)).
+subtype(icloneable33554495,icloneable33554495).
+-subtype(icloneable33554495,icollection33555565).
+-subtype(icloneable33554495,icollection33555619(_)).
+-subtype(icloneable33554495,ideserializationcallback33556230).
+-subtype(icloneable33554495,idictionary33555567).
+-subtype(icloneable33554495,idictionary33555621(_,_)).
+-subtype(icloneable33554495,ienumerable33555569).
+-subtype(icloneable33554495,ienumerable33555622(_)).
+-subtype(icloneable33554495,ireadonlycollection33555626(_)).
+-subtype(icloneable33554495,ireadonlydictionary33555628(_,_)).
+-subtype(icloneable33554495,iserializable33556234).
+-subtype(icloneable33554495,keyvaluepair33555630(_,_)).
+-subtype(icloneable33554495,multicastdelegate33554567).
+subtype(icloneable33554495,object33554493).
+-subtype(icloneable33554495,valuetype33554777).
+-subtype(icollection33555565,delegate33554565).
+-subtype(icollection33555565,dictionary33555602(_,_)).
+-subtype(icollection33555565,func33554502(_,_)).
+-subtype(icollection33555565,func33554503(_,_,_)).
+-subtype(icollection33555565,icloneable33554495).
+subtype(icollection33555565,icollection33555565).
+-subtype(icollection33555565,icollection33555619(_)).
+-subtype(icollection33555565,ideserializationcallback33556230).
+-subtype(icollection33555565,idictionary33555567).
+-subtype(icollection33555565,idictionary33555621(_,_)).
+subtype(icollection33555565,ienumerable33555569).
+-subtype(icollection33555565,ienumerable33555622(_)).
+-subtype(icollection33555565,ireadonlycollection33555626(_)).
+-subtype(icollection33555565,ireadonlydictionary33555628(_,_)).
+-subtype(icollection33555565,iserializable33556234).
+-subtype(icollection33555565,keyvaluepair33555630(_,_)).
+-subtype(icollection33555565,multicastdelegate33554567).
+subtype(icollection33555565,object33554493).
+-subtype(icollection33555565,valuetype33554777).
+-subtype(icollection33555619(_),delegate33554565).
+-subtype(icollection33555619(_),dictionary33555602(_,_)).
+-subtype(icollection33555619(_),func33554502(_,_)).
+-subtype(icollection33555619(_),func33554503(_,_,_)).
+-subtype(icollection33555619(_),icloneable33554495).
+-subtype(icollection33555619(_),icollection33555565).
+-subtype(icollection33555619(_),ideserializationcallback33556230).
+-subtype(icollection33555619(_),idictionary33555567).
+-subtype(icollection33555619(_),idictionary33555621(_,_)).
+subtype(icollection33555619(_),ienumerable33555569).
+-subtype(icollection33555619(_),ireadonlycollection33555626(_)).
+-subtype(icollection33555619(_),ireadonlydictionary33555628(_,_)).
+-subtype(icollection33555619(_),iserializable33556234).
+-subtype(icollection33555619(_),keyvaluepair33555630(_,_)).
+-subtype(icollection33555619(_),multicastdelegate33554567).
+subtype(icollection33555619(_),object33554493).
+-subtype(icollection33555619(_),valuetype33554777).
+-subtype(icollection33555619(A),icollection33555619(B)) <- A != B.
+subtype(icollection33555619(A),icollection33555619(B)) <- A = B.
+subtype(icollection33555619(A),ienumerable33555622(B)) <- subtype(ienumerable33555622(A),ienumerable33555622(B)).
+-subtype(icollection33555619(A),ienumerable33555622(B)) <- -subtype(ienumerable33555622(A),ienumerable33555622(B)).
+-subtype(ideserializationcallback33556230,delegate33554565).
+-subtype(ideserializationcallback33556230,dictionary33555602(_,_)).
+-subtype(ideserializationcallback33556230,func33554502(_,_)).
+-subtype(ideserializationcallback33556230,func33554503(_,_,_)).
+-subtype(ideserializationcallback33556230,icloneable33554495).
+-subtype(ideserializationcallback33556230,icollection33555565).
+-subtype(ideserializationcallback33556230,icollection33555619(_)).
+subtype(ideserializationcallback33556230,ideserializationcallback33556230).
+-subtype(ideserializationcallback33556230,idictionary33555567).
+-subtype(ideserializationcallback33556230,idictionary33555621(_,_)).
+-subtype(ideserializationcallback33556230,ienumerable33555569).
+-subtype(ideserializationcallback33556230,ienumerable33555622(_)).
+-subtype(ideserializationcallback33556230,ireadonlycollection33555626(_)).
+-subtype(ideserializationcallback33556230,ireadonlydictionary33555628(_,_)).
+-subtype(ideserializationcallback33556230,iserializable33556234).
+-subtype(ideserializationcallback33556230,keyvaluepair33555630(_,_)).
+-subtype(ideserializationcallback33556230,multicastdelegate33554567).
+subtype(ideserializationcallback33556230,object33554493).
+-subtype(ideserializationcallback33556230,valuetype33554777).
+-subtype(idictionary33555567,delegate33554565).
+-subtype(idictionary33555567,dictionary33555602(_,_)).
+-subtype(idictionary33555567,func33554502(_,_)).
+-subtype(idictionary33555567,func33554503(_,_,_)).
+-subtype(idictionary33555567,icloneable33554495).
+subtype(idictionary33555567,icollection33555565).
+-subtype(idictionary33555567,icollection33555619(_)).
+-subtype(idictionary33555567,ideserializationcallback33556230).
+subtype(idictionary33555567,idictionary33555567).
+-subtype(idictionary33555567,idictionary33555621(_,_)).
+subtype(idictionary33555567,ienumerable33555569).
+-subtype(idictionary33555567,ienumerable33555622(_)).
+-subtype(idictionary33555567,ireadonlycollection33555626(_)).
+-subtype(idictionary33555567,ireadonlydictionary33555628(_,_)).
+-subtype(idictionary33555567,iserializable33556234).
+-subtype(idictionary33555567,keyvaluepair33555630(_,_)).
+-subtype(idictionary33555567,multicastdelegate33554567).
+subtype(idictionary33555567,object33554493).
+-subtype(idictionary33555567,valuetype33554777).
+-subtype(idictionary33555621(_,_),delegate33554565).
+-subtype(idictionary33555621(_,_),dictionary33555602(_,_)).
+-subtype(idictionary33555621(_,_),func33554502(_,_)).
+-subtype(idictionary33555621(_,_),func33554503(_,_,_)).
+-subtype(idictionary33555621(_,_),icloneable33554495).
+-subtype(idictionary33555621(_,_),icollection33555565).
+-subtype(idictionary33555621(_,_),ideserializationcallback33556230).
+-subtype(idictionary33555621(_,_),idictionary33555567).
+subtype(idictionary33555621(_,_),ienumerable33555569).
+-subtype(idictionary33555621(_,_),ireadonlycollection33555626(_)).
+-subtype(idictionary33555621(_,_),ireadonlydictionary33555628(_,_)).
+-subtype(idictionary33555621(_,_),iserializable33556234).
+-subtype(idictionary33555621(_,_),keyvaluepair33555630(_,_)).
+-subtype(idictionary33555621(_,_),multicastdelegate33554567).
+subtype(idictionary33555621(_,_),object33554493).
+-subtype(idictionary33555621(_,_),valuetype33554777).
+-subtype(idictionary33555621(_,B),idictionary33555621(_,D)) <- B != D.
+-subtype(idictionary33555621(A,_),idictionary33555621(C,_)) <- A != C.
+subtype(idictionary33555621(A,B),icollection33555619(C)) <- subtype(icollection33555619(keyvaluepair33555630(A,B)),icollection33555619(C)).
+-subtype(idictionary33555621(A,B),icollection33555619(C)) <- -subtype(icollection33555619(keyvaluepair33555630(A,B)),icollection33555619(C)).
+subtype(idictionary33555621(A,B),idictionary33555621(C,D)) <- A = C & B = D.
+subtype(idictionary33555621(A,B),ienumerable33555622(C)) <- subtype(ienumerable33555622(keyvaluepair33555630(A,B)),ienumerable33555622(C)).
+-subtype(idictionary33555621(A,B),ienumerable33555622(C)) <- -subtype(ienumerable33555622(keyvaluepair33555630(A,B)),ienumerable33555622(C)).
+-subtype(ienumerable33555569,delegate33554565).
+-subtype(ienumerable33555569,dictionary33555602(_,_)).
+-subtype(ienumerable33555569,func33554502(_,_)).
+-subtype(ienumerable33555569,func33554503(_,_,_)).
+-subtype(ienumerable33555569,icloneable33554495).
+-subtype(ienumerable33555569,icollection33555565).
+-subtype(ienumerable33555569,icollection33555619(_)).
+-subtype(ienumerable33555569,ideserializationcallback33556230).
+-subtype(ienumerable33555569,idictionary33555567).
+-subtype(ienumerable33555569,idictionary33555621(_,_)).
+subtype(ienumerable33555569,ienumerable33555569).
+-subtype(ienumerable33555569,ienumerable33555622(_)).
+-subtype(ienumerable33555569,ireadonlycollection33555626(_)).
+-subtype(ienumerable33555569,ireadonlydictionary33555628(_,_)).
+-subtype(ienumerable33555569,iserializable33556234).
+-subtype(ienumerable33555569,keyvaluepair33555630(_,_)).
+-subtype(ienumerable33555569,multicastdelegate33554567).
+subtype(ienumerable33555569,object33554493).
+-subtype(ienumerable33555569,valuetype33554777).
+-subtype(ienumerable33555622(_),delegate33554565).
+-subtype(ienumerable33555622(_),dictionary33555602(_,_)).
+-subtype(ienumerable33555622(_),func33554502(_,_)).
+-subtype(ienumerable33555622(_),func33554503(_,_,_)).
+-subtype(ienumerable33555622(_),icloneable33554495).
+-subtype(ienumerable33555622(_),icollection33555565).
+-subtype(ienumerable33555622(_),icollection33555619(_)).
+-subtype(ienumerable33555622(_),ideserializationcallback33556230).
+-subtype(ienumerable33555622(_),idictionary33555567).
+-subtype(ienumerable33555622(_),idictionary33555621(_,_)).
+subtype(ienumerable33555622(_),ienumerable33555569).
+-subtype(ienumerable33555622(_),ireadonlycollection33555626(_)).
+-subtype(ienumerable33555622(_),ireadonlydictionary33555628(_,_)).
+-subtype(ienumerable33555622(_),iserializable33556234).
+-subtype(ienumerable33555622(_),keyvaluepair33555630(_,_)).
+-subtype(ienumerable33555622(_),multicastdelegate33554567).
+subtype(ienumerable33555622(_),object33554493).
+-subtype(ienumerable33555622(_),valuetype33554777).
+subtype(ienumerable33555622(A),ienumerable33555622(B)) <- covariant_subtype(A,B).
+-subtype(ienumerable33555622(A),ienumerable33555622(B)) <- -covariant_subtype(A,B).
+-subtype(ireadonlycollection33555626(_),delegate33554565).
+-subtype(ireadonlycollection33555626(_),dictionary33555602(_,_)).
+-subtype(ireadonlycollection33555626(_),func33554502(_,_)).
+-subtype(ireadonlycollection33555626(_),func33554503(_,_,_)).
+-subtype(ireadonlycollection33555626(_),icloneable33554495).
+-subtype(ireadonlycollection33555626(_),icollection33555565).
+-subtype(ireadonlycollection33555626(_),icollection33555619(_)).
+-subtype(ireadonlycollection33555626(_),ideserializationcallback33556230).
+-subtype(ireadonlycollection33555626(_),idictionary33555567).
+-subtype(ireadonlycollection33555626(_),idictionary33555621(_,_)).
+subtype(ireadonlycollection33555626(_),ienumerable33555569).
+-subtype(ireadonlycollection33555626(_),ireadonlydictionary33555628(_,_)).
+-subtype(ireadonlycollection33555626(_),iserializable33556234).
+-subtype(ireadonlycollection33555626(_),keyvaluepair33555630(_,_)).
+-subtype(ireadonlycollection33555626(_),multicastdelegate33554567).
+subtype(ireadonlycollection33555626(_),object33554493).
+-subtype(ireadonlycollection33555626(_),valuetype33554777).
+subtype(ireadonlycollection33555626(A),ienumerable33555622(B)) <- subtype(ienumerable33555622(A),ienumerable33555622(B)).
+-subtype(ireadonlycollection33555626(A),ienumerable33555622(B)) <- -subtype(ienumerable33555622(A),ienumerable33555622(B)).
+subtype(ireadonlycollection33555626(A),ireadonlycollection33555626(B)) <- covariant_subtype(A,B).
+-subtype(ireadonlycollection33555626(A),ireadonlycollection33555626(B)) <- -covariant_subtype(A,B).
+-subtype(ireadonlydictionary33555628(_,_),delegate33554565).
+-subtype(ireadonlydictionary33555628(_,_),dictionary33555602(_,_)).
+-subtype(ireadonlydictionary33555628(_,_),func33554502(_,_)).
+-subtype(ireadonlydictionary33555628(_,_),func33554503(_,_,_)).
+-subtype(ireadonlydictionary33555628(_,_),icloneable33554495).
+-subtype(ireadonlydictionary33555628(_,_),icollection33555565).
+-subtype(ireadonlydictionary33555628(_,_),icollection33555619(_)).
+-subtype(ireadonlydictionary33555628(_,_),ideserializationcallback33556230).
+-subtype(ireadonlydictionary33555628(_,_),idictionary33555567).
+-subtype(ireadonlydictionary33555628(_,_),idictionary33555621(_,_)).
+subtype(ireadonlydictionary33555628(_,_),ienumerable33555569).
+-subtype(ireadonlydictionary33555628(_,_),iserializable33556234).
+-subtype(ireadonlydictionary33555628(_,_),keyvaluepair33555630(_,_)).
+-subtype(ireadonlydictionary33555628(_,_),multicastdelegate33554567).
+subtype(ireadonlydictionary33555628(_,_),object33554493).
+-subtype(ireadonlydictionary33555628(_,_),valuetype33554777).
+-subtype(ireadonlydictionary33555628(_,B),ireadonlydictionary33555628(_,D)) <- B != D.
+-subtype(ireadonlydictionary33555628(A,_),ireadonlydictionary33555628(C,_)) <- A != C.
+subtype(ireadonlydictionary33555628(A,B),ienumerable33555622(C)) <- subtype(ienumerable33555622(keyvaluepair33555630(A,B)),ienumerable33555622(C)).
+-subtype(ireadonlydictionary33555628(A,B),ienumerable33555622(C)) <- -subtype(ienumerable33555622(keyvaluepair33555630(A,B)),ienumerable33555622(C)).
+subtype(ireadonlydictionary33555628(A,B),ireadonlycollection33555626(C)) <- subtype(ireadonlycollection33555626(keyvaluepair33555630(A,B)),ireadonlycollection33555626(C)).
+-subtype(ireadonlydictionary33555628(A,B),ireadonlycollection33555626(C)) <- -subtype(ireadonlycollection33555626(keyvaluepair33555630(A,B)),ireadonlycollection33555626(C)).
+subtype(ireadonlydictionary33555628(A,B),ireadonlydictionary33555628(C,D)) <- A = C & B = D.
+-subtype(iserializable33556234,delegate33554565).
+-subtype(iserializable33556234,dictionary33555602(_,_)).
+-subtype(iserializable33556234,func33554502(_,_)).
+-subtype(iserializable33556234,func33554503(_,_,_)).
+-subtype(iserializable33556234,icloneable33554495).
+-subtype(iserializable33556234,icollection33555565).
+-subtype(iserializable33556234,icollection33555619(_)).
+-subtype(iserializable33556234,ideserializationcallback33556230).
+-subtype(iserializable33556234,idictionary33555567).
+-subtype(iserializable33556234,idictionary33555621(_,_)).
+-subtype(iserializable33556234,ienumerable33555569).
+-subtype(iserializable33556234,ienumerable33555622(_)).
+-subtype(iserializable33556234,ireadonlycollection33555626(_)).
+-subtype(iserializable33556234,ireadonlydictionary33555628(_,_)).
+subtype(iserializable33556234,iserializable33556234).
+-subtype(iserializable33556234,keyvaluepair33555630(_,_)).
+-subtype(iserializable33556234,multicastdelegate33554567).
+subtype(iserializable33556234,object33554493).
+-subtype(iserializable33556234,valuetype33554777).
+-subtype(keyvaluepair33555630(_,_),delegate33554565).
+-subtype(keyvaluepair33555630(_,_),dictionary33555602(_,_)).
+-subtype(keyvaluepair33555630(_,_),func33554502(_,_)).
+-subtype(keyvaluepair33555630(_,_),func33554503(_,_,_)).
+-subtype(keyvaluepair33555630(_,_),icloneable33554495).
+-subtype(keyvaluepair33555630(_,_),icollection33555565).
+-subtype(keyvaluepair33555630(_,_),icollection33555619(_)).
+-subtype(keyvaluepair33555630(_,_),ideserializationcallback33556230).
+-subtype(keyvaluepair33555630(_,_),idictionary33555567).
+-subtype(keyvaluepair33555630(_,_),idictionary33555621(_,_)).
+-subtype(keyvaluepair33555630(_,_),ienumerable33555569).
+-subtype(keyvaluepair33555630(_,_),ienumerable33555622(_)).
+-subtype(keyvaluepair33555630(_,_),ireadonlycollection33555626(_)).
+-subtype(keyvaluepair33555630(_,_),ireadonlydictionary33555628(_,_)).
+-subtype(keyvaluepair33555630(_,_),iserializable33556234).
+-subtype(keyvaluepair33555630(_,_),multicastdelegate33554567).
+subtype(keyvaluepair33555630(_,_),object33554493).
+subtype(keyvaluepair33555630(_,_),valuetype33554777).
+-subtype(keyvaluepair33555630(_,B),keyvaluepair33555630(_,D)) <- B != D.
+-subtype(keyvaluepair33555630(A,_),keyvaluepair33555630(C,_)) <- A != C.
+subtype(keyvaluepair33555630(A,B),keyvaluepair33555630(C,D)) <- A = C & B = D.
+subtype(multicastdelegate33554567,delegate33554565).
+-subtype(multicastdelegate33554567,dictionary33555602(_,_)).
+-subtype(multicastdelegate33554567,func33554502(_,_)).
+-subtype(multicastdelegate33554567,func33554503(_,_,_)).
+subtype(multicastdelegate33554567,icloneable33554495).
+-subtype(multicastdelegate33554567,icollection33555565).
+-subtype(multicastdelegate33554567,icollection33555619(_)).
+-subtype(multicastdelegate33554567,ideserializationcallback33556230).
+-subtype(multicastdelegate33554567,idictionary33555567).
+-subtype(multicastdelegate33554567,idictionary33555621(_,_)).
+-subtype(multicastdelegate33554567,ienumerable33555569).
+-subtype(multicastdelegate33554567,ienumerable33555622(_)).
+-subtype(multicastdelegate33554567,ireadonlycollection33555626(_)).
+-subtype(multicastdelegate33554567,ireadonlydictionary33555628(_,_)).
+subtype(multicastdelegate33554567,iserializable33556234).
+-subtype(multicastdelegate33554567,keyvaluepair33555630(_,_)).
+subtype(multicastdelegate33554567,multicastdelegate33554567).
+subtype(multicastdelegate33554567,object33554493).
+-subtype(multicastdelegate33554567,valuetype33554777).
+-subtype(object33554493,delegate33554565).
+-subtype(object33554493,dictionary33555602(_,_)).
+-subtype(object33554493,func33554502(_,_)).
+-subtype(object33554493,func33554503(_,_,_)).
+-subtype(object33554493,icloneable33554495).
+-subtype(object33554493,icollection33555565).
+-subtype(object33554493,icollection33555619(_)).
+-subtype(object33554493,ideserializationcallback33556230).
+-subtype(object33554493,idictionary33555567).
+-subtype(object33554493,idictionary33555621(_,_)).
+-subtype(object33554493,ienumerable33555569).
+-subtype(object33554493,ienumerable33555622(_)).
+-subtype(object33554493,ireadonlycollection33555626(_)).
+-subtype(object33554493,ireadonlydictionary33555628(_,_)).
+-subtype(object33554493,iserializable33556234).
+-subtype(object33554493,keyvaluepair33555630(_,_)).
+-subtype(object33554493,multicastdelegate33554567).
+subtype(object33554493,object33554493).
+-subtype(object33554493,valuetype33554777).
+-subtype(valuetype33554777,delegate33554565).
+-subtype(valuetype33554777,dictionary33555602(_,_)).
+-subtype(valuetype33554777,func33554502(_,_)).
+-subtype(valuetype33554777,func33554503(_,_,_)).
+-subtype(valuetype33554777,icloneable33554495).
+-subtype(valuetype33554777,icollection33555565).
+-subtype(valuetype33554777,icollection33555619(_)).
+-subtype(valuetype33554777,ideserializationcallback33556230).
+-subtype(valuetype33554777,idictionary33555567).
+-subtype(valuetype33554777,idictionary33555621(_,_)).
+-subtype(valuetype33554777,ienumerable33555569).
+-subtype(valuetype33554777,ienumerable33555622(_)).
+-subtype(valuetype33554777,ireadonlycollection33555626(_)).
+-subtype(valuetype33554777,ireadonlydictionary33555628(_,_)).
+-subtype(valuetype33554777,iserializable33556234).
+-subtype(valuetype33554777,keyvaluepair33555630(_,_)).
+-subtype(valuetype33554777,multicastdelegate33554567).
+subtype(valuetype33554777,object33554493).
+subtype(valuetype33554777,valuetype33554777). 
+end_of_list.
+formulas(goals). 
+exists A exists B exists C exists D exists E (-subtype(A,func33554502(B,dictionary33555602(C,D))) & -subtype(func33554503(C,E,B),func33554503(C,func33554502(C,D),C))). 
+end_of_list.

@@ -1,0 +1,32 @@
+set(prolog_style_variables).
+assign(max_seconds,20).
+assign(max_megs, 1024).
+formulas(assumptions).
+-contravariant_subtype(A,B) <- B != A & is_valuetype(B).
+contravariant_subtype(A,B) <- B = A & is_valuetype(B).
+contravariant_subtype(A,B) <- is_reference(B) & subtype(B,A).
+-contravariant_subtype(A,B) <- is_reference(B) & -subtype(B,A).
+-covariant_subtype(A,B) <- A != B & is_valuetype(A).
+covariant_subtype(A,B) <- A = B & is_valuetype(A).
+covariant_subtype(A,B) <- is_reference(A) & subtype(A,B).
+-covariant_subtype(A,B) <- is_reference(A) & -subtype(A,B).
+default_constructor(object33554493).
+is_reference(ia33554436(_)).
+is_reference(object33554493).
+is_reference(valuetype33554777).
+is_unmanaged(_) <- $F.
+is_valuetype(_) <- $F.
+subtype(ia33554436(_),object33554493).
+-subtype(ia33554436(_),valuetype33554777).
+subtype(ia33554436(A),ia33554436(B)) <- covariant_subtype(A,B).
+-subtype(ia33554436(A),ia33554436(B)) <- -covariant_subtype(A,B).
+-subtype(object33554493,ia33554436(_)).
+subtype(object33554493,object33554493).
+-subtype(object33554493,valuetype33554777).
+-subtype(valuetype33554777,ia33554436(_)).
+subtype(valuetype33554777,object33554493).
+subtype(valuetype33554777,valuetype33554777). 
+end_of_list.
+formulas(goals). 
+exists A exists B exists C exists D exists E exists F exists G exists H exists I exists J exists K (-subtype(A,ia33554436(A)) & -subtype(B,ia33554436(A)) & -subtype(valuetype33554777,C) & -subtype(D,ia33554436(D)) & -subtype(E,ia33554436(D)) & -subtype(F,A) & -subtype(G,A) & -subtype(F,H) & -subtype(G,H) & -subtype(C,H) & -subtype(I,H) & -subtype(J,H) & -subtype(K,H) & -subtype(A,ia33554436(D)) & -subtype(D,ia33554436(A)) & -subtype(A,ia33554436(D)) & -subtype(D,ia33554436(A)) & default_constructor(C) & is_reference(J)). 
+end_of_list.

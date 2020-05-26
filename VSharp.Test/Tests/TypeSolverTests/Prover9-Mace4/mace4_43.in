@@ -1,0 +1,64 @@
+set(prolog_style_variables).
+assign(max_seconds,20).
+assign(max_megs, 1024).
+formulas(assumptions).
+-contravariant_subtype(A,B) <- B != A & is_valuetype(B).
+contravariant_subtype(A,B) <- B = A & is_valuetype(B).
+contravariant_subtype(A,B) <- is_reference(B) & subtype(B,A).
+-contravariant_subtype(A,B) <- is_reference(B) & -subtype(B,A).
+-covariant_subtype(A,B) <- A != B & is_valuetype(A).
+covariant_subtype(A,B) <- A = B & is_valuetype(A).
+covariant_subtype(A,B) <- is_reference(A) & subtype(A,B).
+-covariant_subtype(A,B) <- is_reference(A) & -subtype(A,B).
+default_constructor(object33554493).
+is_reference(expression33554963).
+is_reference(ienumerable33555569).
+is_reference(ienumerable33555622(_)).
+is_reference(iqueryable33554758).
+is_reference(iqueryable33554759(_)).
+is_reference(object33554493).
+is_unmanaged(_) <- $F.
+is_valuetype(_) <- $F.
+subtype(expression33554963,expression33554963).
+-subtype(expression33554963,ienumerable33555569).
+-subtype(expression33554963,ienumerable33555622(_)).
+-subtype(expression33554963,iqueryable33554758).
+-subtype(expression33554963,iqueryable33554759(_)).
+subtype(expression33554963,object33554493).
+-subtype(ienumerable33555569,expression33554963).
+subtype(ienumerable33555569,ienumerable33555569).
+-subtype(ienumerable33555569,ienumerable33555622(_)).
+-subtype(ienumerable33555569,iqueryable33554758).
+-subtype(ienumerable33555569,iqueryable33554759(_)).
+subtype(ienumerable33555569,object33554493).
+-subtype(ienumerable33555622(_),expression33554963).
+subtype(ienumerable33555622(_),ienumerable33555569).
+-subtype(ienumerable33555622(_),iqueryable33554758).
+-subtype(ienumerable33555622(_),iqueryable33554759(_)).
+subtype(ienumerable33555622(_),object33554493).
+subtype(ienumerable33555622(A),ienumerable33555622(B)) <- covariant_subtype(A,B).
+-subtype(ienumerable33555622(A),ienumerable33555622(B)) <- -covariant_subtype(A,B).
+-subtype(iqueryable33554758,expression33554963).
+subtype(iqueryable33554758,ienumerable33555569).
+-subtype(iqueryable33554758,ienumerable33555622(_)).
+subtype(iqueryable33554758,iqueryable33554758).
+-subtype(iqueryable33554758,iqueryable33554759(_)).
+subtype(iqueryable33554758,object33554493).
+-subtype(iqueryable33554759(_),expression33554963).
+subtype(iqueryable33554759(_),ienumerable33555569).
+subtype(iqueryable33554759(_),iqueryable33554758).
+subtype(iqueryable33554759(_),object33554493).
+subtype(iqueryable33554759(A),ienumerable33555622(B)) <- subtype(ienumerable33555622(A),ienumerable33555622(B)).
+-subtype(iqueryable33554759(A),ienumerable33555622(B)) <- -subtype(ienumerable33555622(A),ienumerable33555622(B)).
+subtype(iqueryable33554759(A),iqueryable33554759(B)) <- covariant_subtype(A,B).
+-subtype(iqueryable33554759(A),iqueryable33554759(B)) <- -covariant_subtype(A,B).
+-subtype(object33554493,expression33554963).
+-subtype(object33554493,ienumerable33555569).
+-subtype(object33554493,ienumerable33555622(_)).
+-subtype(object33554493,iqueryable33554758).
+-subtype(object33554493,iqueryable33554759(_)).
+subtype(object33554493,object33554493). 
+end_of_list.
+formulas(goals). 
+exists A (subtype(expression33554963,iqueryable33554759(A))). 
+end_of_list.

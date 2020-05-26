@@ -1,0 +1,212 @@
+set(prolog_style_variables).
+assign(max_seconds,20).
+assign(max_megs, 1024).
+formulas(assumptions).
+-contravariant_subtype(A,B) <- B != A & is_valuetype(B).
+contravariant_subtype(A,B) <- B = A & is_valuetype(B).
+contravariant_subtype(A,B) <- is_reference(B) & subtype(B,A).
+-contravariant_subtype(A,B) <- is_reference(B) & -subtype(B,A).
+-covariant_subtype(A,B) <- A != B & is_valuetype(A).
+covariant_subtype(A,B) <- A = B & is_valuetype(A).
+covariant_subtype(A,B) <- is_reference(A) & subtype(A,B).
+-covariant_subtype(A,B) <- is_reference(A) & -subtype(A,B).
+default_constructor(int3233554683).
+default_constructor(object33554493).
+default_constructor(sa33554482).
+default_constructor(sb33554483).
+default_constructor(sc33554484).
+is_reference(ia33554436(_)).
+is_reference(icomparable33554520).
+is_reference(icomparable33554521(_)).
+is_reference(iconvertible33554691).
+is_reference(iequatable33554522(_)).
+is_reference(iformattable33554672).
+is_reference(ik33554445).
+is_reference(object33554493).
+is_reference(valuetype33554777).
+is_unmanaged(int3233554683).
+is_unmanaged(sa33554482).
+is_unmanaged(sb33554483).
+is_unmanaged(sc33554484).
+is_valuetype(int3233554683).
+is_valuetype(sa33554482).
+is_valuetype(sb33554483).
+is_valuetype(sc33554484).
+-subtype(ia33554436(_),icomparable33554520).
+-subtype(ia33554436(_),icomparable33554521(_)).
+-subtype(ia33554436(_),iconvertible33554691).
+-subtype(ia33554436(_),iequatable33554522(_)).
+-subtype(ia33554436(_),iformattable33554672).
+-subtype(ia33554436(_),ik33554445).
+-subtype(ia33554436(_),int3233554683).
+subtype(ia33554436(_),object33554493).
+-subtype(ia33554436(_),sa33554482).
+-subtype(ia33554436(_),sb33554483).
+-subtype(ia33554436(_),sc33554484).
+-subtype(ia33554436(_),valuetype33554777).
+subtype(ia33554436(A),ia33554436(B)) <- covariant_subtype(A,B).
+-subtype(ia33554436(A),ia33554436(B)) <- -covariant_subtype(A,B).
+-subtype(icomparable33554520,ia33554436(_)).
+subtype(icomparable33554520,icomparable33554520).
+-subtype(icomparable33554520,icomparable33554521(_)).
+-subtype(icomparable33554520,iconvertible33554691).
+-subtype(icomparable33554520,iequatable33554522(_)).
+-subtype(icomparable33554520,iformattable33554672).
+-subtype(icomparable33554520,ik33554445).
+-subtype(icomparable33554520,int3233554683).
+subtype(icomparable33554520,object33554493).
+-subtype(icomparable33554520,sa33554482).
+-subtype(icomparable33554520,sb33554483).
+-subtype(icomparable33554520,sc33554484).
+-subtype(icomparable33554520,valuetype33554777).
+-subtype(icomparable33554521(_),ia33554436(_)).
+-subtype(icomparable33554521(_),icomparable33554520).
+-subtype(icomparable33554521(_),iconvertible33554691).
+-subtype(icomparable33554521(_),iequatable33554522(_)).
+-subtype(icomparable33554521(_),iformattable33554672).
+-subtype(icomparable33554521(_),ik33554445).
+-subtype(icomparable33554521(_),int3233554683).
+subtype(icomparable33554521(_),object33554493).
+-subtype(icomparable33554521(_),sa33554482).
+-subtype(icomparable33554521(_),sb33554483).
+-subtype(icomparable33554521(_),sc33554484).
+-subtype(icomparable33554521(_),valuetype33554777).
+subtype(icomparable33554521(A),icomparable33554521(B)) <- contravariant_subtype(A,B).
+-subtype(icomparable33554521(A),icomparable33554521(B)) <- -contravariant_subtype(A,B).
+-subtype(iconvertible33554691,ia33554436(_)).
+-subtype(iconvertible33554691,icomparable33554520).
+-subtype(iconvertible33554691,icomparable33554521(_)).
+subtype(iconvertible33554691,iconvertible33554691).
+-subtype(iconvertible33554691,iequatable33554522(_)).
+-subtype(iconvertible33554691,iformattable33554672).
+-subtype(iconvertible33554691,ik33554445).
+-subtype(iconvertible33554691,int3233554683).
+subtype(iconvertible33554691,object33554493).
+-subtype(iconvertible33554691,sa33554482).
+-subtype(iconvertible33554691,sb33554483).
+-subtype(iconvertible33554691,sc33554484).
+-subtype(iconvertible33554691,valuetype33554777).
+-subtype(iequatable33554522(_),ia33554436(_)).
+-subtype(iequatable33554522(_),icomparable33554520).
+-subtype(iequatable33554522(_),icomparable33554521(_)).
+-subtype(iequatable33554522(_),iconvertible33554691).
+-subtype(iequatable33554522(_),iformattable33554672).
+-subtype(iequatable33554522(_),ik33554445).
+-subtype(iequatable33554522(_),int3233554683).
+subtype(iequatable33554522(_),object33554493).
+-subtype(iequatable33554522(_),sa33554482).
+-subtype(iequatable33554522(_),sb33554483).
+-subtype(iequatable33554522(_),sc33554484).
+-subtype(iequatable33554522(_),valuetype33554777).
+-subtype(iequatable33554522(A),iequatable33554522(B)) <- A != B.
+subtype(iequatable33554522(A),iequatable33554522(B)) <- A = B.
+-subtype(iformattable33554672,ia33554436(_)).
+-subtype(iformattable33554672,icomparable33554520).
+-subtype(iformattable33554672,icomparable33554521(_)).
+-subtype(iformattable33554672,iconvertible33554691).
+-subtype(iformattable33554672,iequatable33554522(_)).
+subtype(iformattable33554672,iformattable33554672).
+-subtype(iformattable33554672,ik33554445).
+-subtype(iformattable33554672,int3233554683).
+subtype(iformattable33554672,object33554493).
+-subtype(iformattable33554672,sa33554482).
+-subtype(iformattable33554672,sb33554483).
+-subtype(iformattable33554672,sc33554484).
+-subtype(iformattable33554672,valuetype33554777).
+-subtype(ik33554445,ia33554436(_)).
+-subtype(ik33554445,icomparable33554520).
+-subtype(ik33554445,icomparable33554521(_)).
+-subtype(ik33554445,iconvertible33554691).
+-subtype(ik33554445,iequatable33554522(_)).
+-subtype(ik33554445,iformattable33554672).
+subtype(ik33554445,ik33554445).
+-subtype(ik33554445,int3233554683).
+subtype(ik33554445,object33554493).
+-subtype(ik33554445,sa33554482).
+-subtype(ik33554445,sb33554483).
+-subtype(ik33554445,sc33554484).
+-subtype(ik33554445,valuetype33554777).
+-subtype(int3233554683,ia33554436(_)).
+subtype(int3233554683,icomparable33554520).
+subtype(int3233554683,icomparable33554521(A)) <- subtype(icomparable33554521(int3233554683),icomparable33554521(A)).
+-subtype(int3233554683,icomparable33554521(A)) <- -subtype(icomparable33554521(int3233554683),icomparable33554521(A)).
+subtype(int3233554683,iconvertible33554691).
+subtype(int3233554683,iequatable33554522(A)) <- subtype(iequatable33554522(int3233554683),iequatable33554522(A)).
+-subtype(int3233554683,iequatable33554522(A)) <- -subtype(iequatable33554522(int3233554683),iequatable33554522(A)).
+subtype(int3233554683,iformattable33554672).
+-subtype(int3233554683,ik33554445).
+subtype(int3233554683,int3233554683).
+subtype(int3233554683,object33554493).
+-subtype(int3233554683,sa33554482).
+-subtype(int3233554683,sb33554483).
+-subtype(int3233554683,sc33554484).
+subtype(int3233554683,valuetype33554777).
+-subtype(object33554493,ia33554436(_)).
+-subtype(object33554493,icomparable33554520).
+-subtype(object33554493,icomparable33554521(_)).
+-subtype(object33554493,iconvertible33554691).
+-subtype(object33554493,iequatable33554522(_)).
+-subtype(object33554493,iformattable33554672).
+-subtype(object33554493,ik33554445).
+-subtype(object33554493,int3233554683).
+subtype(object33554493,object33554493).
+-subtype(object33554493,sa33554482).
+-subtype(object33554493,sb33554483).
+-subtype(object33554493,sc33554484).
+-subtype(object33554493,valuetype33554777).
+-subtype(sa33554482,ia33554436(_)).
+-subtype(sa33554482,icomparable33554520).
+-subtype(sa33554482,icomparable33554521(_)).
+-subtype(sa33554482,iconvertible33554691).
+-subtype(sa33554482,iequatable33554522(_)).
+-subtype(sa33554482,iformattable33554672).
+-subtype(sa33554482,ik33554445).
+-subtype(sa33554482,int3233554683).
+subtype(sa33554482,object33554493).
+subtype(sa33554482,sa33554482).
+-subtype(sa33554482,sb33554483).
+-subtype(sa33554482,sc33554484).
+subtype(sa33554482,valuetype33554777).
+-subtype(sb33554483,ia33554436(_)).
+-subtype(sb33554483,icomparable33554520).
+-subtype(sb33554483,icomparable33554521(_)).
+-subtype(sb33554483,iconvertible33554691).
+-subtype(sb33554483,iequatable33554522(_)).
+-subtype(sb33554483,iformattable33554672).
+-subtype(sb33554483,ik33554445).
+-subtype(sb33554483,int3233554683).
+subtype(sb33554483,object33554493).
+-subtype(sb33554483,sa33554482).
+subtype(sb33554483,sb33554483).
+-subtype(sb33554483,sc33554484).
+subtype(sb33554483,valuetype33554777).
+-subtype(sc33554484,ia33554436(_)).
+-subtype(sc33554484,icomparable33554520).
+-subtype(sc33554484,icomparable33554521(_)).
+-subtype(sc33554484,iconvertible33554691).
+-subtype(sc33554484,iequatable33554522(_)).
+-subtype(sc33554484,iformattable33554672).
+-subtype(sc33554484,ik33554445).
+-subtype(sc33554484,int3233554683).
+subtype(sc33554484,object33554493).
+-subtype(sc33554484,sa33554482).
+-subtype(sc33554484,sb33554483).
+subtype(sc33554484,sc33554484).
+subtype(sc33554484,valuetype33554777).
+-subtype(valuetype33554777,ia33554436(_)).
+-subtype(valuetype33554777,icomparable33554520).
+-subtype(valuetype33554777,icomparable33554521(_)).
+-subtype(valuetype33554777,iconvertible33554691).
+-subtype(valuetype33554777,iequatable33554522(_)).
+-subtype(valuetype33554777,iformattable33554672).
+-subtype(valuetype33554777,ik33554445).
+-subtype(valuetype33554777,int3233554683).
+subtype(valuetype33554777,object33554493).
+-subtype(valuetype33554777,sa33554482).
+-subtype(valuetype33554777,sb33554483).
+-subtype(valuetype33554777,sc33554484).
+subtype(valuetype33554777,valuetype33554777). 
+end_of_list.
+formulas(goals). 
+exists A exists B exists C (-subtype(A,sc33554484) & -subtype(B,sc33554484) & -subtype(A,ik33554445) & -subtype(B,ik33554445) & -subtype(A,sb33554483) & -subtype(B,sb33554483) & -subtype(A,sa33554482) & -subtype(B,sa33554482) & -subtype(A,ia33554436(C)) & -subtype(B,ia33554436(C)) & -subtype(A,int3233554683) & -subtype(B,int3233554683) & -subtype(C,valuetype33554777) & -subtype(C,valuetype33554777) & is_valuetype(C) & default_constructor(C)). 
+end_of_list.

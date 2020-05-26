@@ -1,0 +1,81 @@
+set(prolog_style_variables).
+assign(max_seconds,20).
+assign(max_megs, 1024).
+formulas(assumptions).
+-contravariant_subtype(A,B) <- B != A & is_valuetype(B).
+contravariant_subtype(A,B) <- B = A & is_valuetype(B).
+contravariant_subtype(A,B) <- is_reference(B) & subtype(B,A).
+-contravariant_subtype(A,B) <- is_reference(B) & -subtype(B,A).
+-covariant_subtype(A,B) <- A != B & is_valuetype(A).
+covariant_subtype(A,B) <- A = B & is_valuetype(A).
+covariant_subtype(A,B) <- is_reference(A) & subtype(A,B).
+-covariant_subtype(A,B) <- is_reference(A) & -subtype(A,B).
+default_constructor(object33554493).
+default_constructor(thing33554490).
+is_reference(ibox33554489(_)).
+is_reference(ienumerable33555569).
+is_reference(ienumerable33555622(_)).
+is_reference(iqueryable33554758).
+is_reference(iqueryable33554759(_)).
+is_reference(object33554493).
+is_reference(thing33554490).
+is_unmanaged(_) <- $F.
+is_valuetype(_) <- $F.
+-subtype(ibox33554489(_),ienumerable33555569).
+-subtype(ibox33554489(_),ienumerable33555622(_)).
+-subtype(ibox33554489(_),iqueryable33554758).
+-subtype(ibox33554489(_),iqueryable33554759(_)).
+subtype(ibox33554489(_),object33554493).
+-subtype(ibox33554489(_),thing33554490).
+subtype(ibox33554489(A),ibox33554489(B)) <- contravariant_subtype(A,B).
+-subtype(ibox33554489(A),ibox33554489(B)) <- -contravariant_subtype(A,B).
+-subtype(ienumerable33555569,ibox33554489(_)).
+subtype(ienumerable33555569,ienumerable33555569).
+-subtype(ienumerable33555569,ienumerable33555622(_)).
+-subtype(ienumerable33555569,iqueryable33554758).
+-subtype(ienumerable33555569,iqueryable33554759(_)).
+subtype(ienumerable33555569,object33554493).
+-subtype(ienumerable33555569,thing33554490).
+-subtype(ienumerable33555622(_),ibox33554489(_)).
+subtype(ienumerable33555622(_),ienumerable33555569).
+-subtype(ienumerable33555622(_),iqueryable33554758).
+-subtype(ienumerable33555622(_),iqueryable33554759(_)).
+subtype(ienumerable33555622(_),object33554493).
+-subtype(ienumerable33555622(_),thing33554490).
+subtype(ienumerable33555622(A),ienumerable33555622(B)) <- covariant_subtype(A,B).
+-subtype(ienumerable33555622(A),ienumerable33555622(B)) <- -covariant_subtype(A,B).
+-subtype(iqueryable33554758,ibox33554489(_)).
+subtype(iqueryable33554758,ienumerable33555569).
+-subtype(iqueryable33554758,ienumerable33555622(_)).
+subtype(iqueryable33554758,iqueryable33554758).
+-subtype(iqueryable33554758,iqueryable33554759(_)).
+subtype(iqueryable33554758,object33554493).
+-subtype(iqueryable33554758,thing33554490).
+-subtype(iqueryable33554759(_),ibox33554489(_)).
+subtype(iqueryable33554759(_),ienumerable33555569).
+subtype(iqueryable33554759(_),iqueryable33554758).
+subtype(iqueryable33554759(_),object33554493).
+-subtype(iqueryable33554759(_),thing33554490).
+subtype(iqueryable33554759(A),ienumerable33555622(B)) <- subtype(ienumerable33555622(A),ienumerable33555622(B)).
+-subtype(iqueryable33554759(A),ienumerable33555622(B)) <- -subtype(ienumerable33555622(A),ienumerable33555622(B)).
+subtype(iqueryable33554759(A),iqueryable33554759(B)) <- covariant_subtype(A,B).
+-subtype(iqueryable33554759(A),iqueryable33554759(B)) <- -covariant_subtype(A,B).
+-subtype(object33554493,ibox33554489(_)).
+-subtype(object33554493,ienumerable33555569).
+-subtype(object33554493,ienumerable33555622(_)).
+-subtype(object33554493,iqueryable33554758).
+-subtype(object33554493,iqueryable33554759(_)).
+subtype(object33554493,object33554493).
+-subtype(object33554493,thing33554490).
+subtype(thing33554490,ibox33554489(A)) <- subtype(ibox33554489(ibox33554489(thing33554490)),ibox33554489(A)).
+-subtype(thing33554490,ibox33554489(A)) <- -subtype(ibox33554489(ibox33554489(thing33554490)),ibox33554489(A)).
+-subtype(thing33554490,ienumerable33555569).
+-subtype(thing33554490,ienumerable33555622(_)).
+-subtype(thing33554490,iqueryable33554758).
+-subtype(thing33554490,iqueryable33554759(_)).
+subtype(thing33554490,object33554493).
+subtype(thing33554490,thing33554490). 
+end_of_list.
+formulas(goals). 
+exists B exists C exists A (subtype(B,iqueryable33554759(C)) & subtype(A,ibox33554489(thing33554490)) & -subtype(A,ibox33554489(thing33554490))). 
+end_of_list.
